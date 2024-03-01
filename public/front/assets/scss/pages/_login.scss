@@ -1,0 +1,58 @@
+.register-wrap {
+    
+    &.login-wrap{
+     
+        section {
+            .register-form-wrap {
+    .social-connect {
+        margin-top: size(82);
+
+    }
+
+    .reg-form {
+        margin-top: size(82);
+
+        .log-mt-95{
+            margin-top: size(95);
+        }
+        .condition-link {
+            margin-top: size(133);
+        }
+
+    }
+
+}
+}
+@include max(767){
+
+    &.login-wrap{
+        section{
+            .register-form-wrap{
+                .social-connect{
+                    margin-top: size(74);
+                }
+            }
+        }
+    }
+    .reg-form {
+        margin-top: size(41)!important;
+    .agree_tp{
+        margin-top: size(50);
+
+    }
+    .log-mt-95{
+        margin-top: size(40)!important;
+        margin-bottom: size(37)!important;
+    }
+}
+}
+}
+}
+
+@include min(1800){
+    .login-page{
+    section{
+      height: 100%;
+    }
+}
+  }

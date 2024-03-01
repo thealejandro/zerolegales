@@ -1,0 +1,42 @@
+        .loadscreen {
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            top: 0;
+            height: 100vh;
+            background: #ffffff;
+        }
+
+        .loadscreen .loader {
+            position: absolute;
+            top: calc(50vh - 50px);
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        .loadscreen .logo {
+            display: inline-block !important;
+            width: 80px;
+            height: 80px;
+        }
+        .layout-sidebar-large .main-header .logo img {
+            width: 167px;
+            /* height: 60px; */
+            margin: 0 auto;
+            display: block;
+        }
+        .auth-logo img {
+            width: 222px;
+            /* height: 100px; */
+        }
+        #editor {
+            height: 375px;
+          }
+        label.error {
+            color: red;
+
+        } 

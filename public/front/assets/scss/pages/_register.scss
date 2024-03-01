@@ -1,0 +1,250 @@
+html,body{
+  height: 100%;
+  
+}
+
+.register-wrap {
+
+  &.modal-open{
+    .modal-dialog{
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+  .footer{
+    display: none;
+  }
+
+  .modal{
+    .SignContentModal{
+      margin-top: 0;
+      .reg-bt-choose{
+        .btn-blue{
+          max-width: size(205);
+        }
+      }
+    }
+  }
+  padding: 0;
+  .main-header-login{
+    display: none;
+    position: fixed;
+    width: 100%;
+    margin: 0 auto;
+    left: 0;
+    top: 0!important;
+    height: size(52);
+    z-index: 1040;
+    background: url("../../assets/img/header-bg.svg"), #ffffff;
+    background-size: cover;
+    overflow: hidden;
+    background-position: 10.5% 0;
+
+  }
+  @include min(1600){
+    main{
+      height: 100%;
+    }
+    section{
+      height: 100%;
+      overflow: scroll;
+    }
+  }
+  main{
+    // height: 100%;
+    .full-height{
+      height: 100%;
+    }
+    .container-fluid{
+      height: 100%;
+    }
+  }
+  section {
+    padding: 0;
+    // height: 100%;
+
+    .register-form-wrap {
+      padding: 116px 0;
+      max-width: 320px;
+      margin: 0 auto;
+
+      .logo-blue-wrap {
+        text-align: center;
+      }
+
+      .social-connect {
+        margin-top: size(50);
+
+        .social-bt-icon {
+          margin-top: size(14);
+          display: flex;
+          justify-content: space-between;
+          .btn-social {
+            max-width: size(150);
+          }
+        }
+      }
+      .reg-form {
+        margin-top: size(38);
+        @include max(767){
+          margin-top: size(40);
+        }
+        .BodySmall-2 {
+          margin-bottom: size(15);
+        }
+        .form-group {
+          margin-bottom: size(27);
+          &.agree-check-mg-top {
+            margin-top: size(4);
+          }
+   @include max(767){
+     &.cst-agree-reg{
+       margin-top: size(50);
+       margin-bottom: size(40);
+     }
+   }
+          .cst-checkbox {
+            .custom-control-label {
+              font-family: Roboto;
+              font-size: 14px;
+              font-weight: normal;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: normal;
+              color: var(--dark-2);
+              &:before {
+                width: 16px !important;
+                height: size(16);
+              }
+              &:after {
+                width: size(16);
+                height: size(16);
+                top: size(4);
+                left: size(0);
+              }
+            }
+          }
+          .btn-blue {
+            line-height: size(18);
+          }
+          .form-control{
+              margin-bottom: 0;
+          }
+        }
+        .extra-links {
+          display: flex;
+          justify-content: space-around;
+          margin-top: size(35);
+
+          ul {
+            margin-bottom: 0;
+            li {
+              position: relative;
+
+              &:first-child {
+                padding-right: size(20);
+              }
+              &:last-child {
+                padding-left: size(19);
+              }
+              &:first-child::after {
+                content: "";
+                position: absolute;
+                width: size(1);
+                right: size(-2);
+                height: size(25);
+                background-color: #d4d4d4;
+                top: size(-3);
+              }
+
+              a{
+                &:hover{
+                  text-decoration: none;
+
+                }
+              }
+            }
+          }
+        }
+     
+        .confirm-val {
+          position: relative;
+
+          .val-icon {
+            position: absolute;
+            top: 27px;
+          
+            right: 8px;
+            color: var(--blue-normal-2);
+            i{
+              font-size: size(17);
+            }
+          }
+        }
+      }
+    }
+    .condition-link {
+      // margin-top: size(56);
+      position: absolute;
+      right: 0;
+      bottom: 50px;
+      left: 0;
+      text-align: center;
+      a {
+        display: block;
+
+        &:hover{
+          text-decoration: none;
+        }
+      }
+    }
+    .people-img-wrap {
+      // max-width: 80%;
+      max-width: 740px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .bg-blue-draw {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        background: url(../img/curved-white.svg);
+        width: 50px;
+        height: 40%;
+        background-repeat: no-repeat;
+        left: -1px;
+      }
+      background: var(--blue-normal-2);
+      //   background-size: cover;
+      //   background-position: center;
+      //   background-repeat: no-repeat;
+    }
+  }
+}
+
+@include max(991){
+  
+    .bg-blue-draw{
+      display: none;
+    }
+    .register-wrap{
+      .main-header-login{
+        display: block;
+      }
+    }
+  
+}
+
+
+
+.register-wrap.mac section .register-form-wrap .reg-form .confirm-val .val-icon {
+  top: 25px;
+  @supports (-moz-appearance:none) {
+    top:26px;
+  }
+}

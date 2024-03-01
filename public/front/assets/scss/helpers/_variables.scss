@@ -1,0 +1,101 @@
+// deafult Color
+$primary-color: #2ed173 !default; // green
+$secondary-color: #41b6f7 !default; // red
+$quinary-color: #272727 !default; // Grey
+// Custom-color
+$dark-bg: #20222e !default;
+$dark-gray: #323241 !default;
+$light-bg: #edf1f7 !default;
+$text-color: #1d1d1d !default;
+$title-color: #1d1d1d !default;
+$hover: $primary-color;
+$border-color: #e6e6e6 !default;
+$text-alt: #282828 !default;
+$text-off: #281107 !default;
+$white: #fff !default;
+$black: #000 !default;
+$red: #c60c02 !default;
+// Font size
+$base-font: 1.6rem !default;
+$text-xs: 1rem !default;
+$text-sm: 1.2rem !default;
+$text-md: 2.3rem !default;
+$text-lg: 1.4rem !default;
+$ttl-xs: 1.8rem !default;
+$ttl-sm: 2.2rem !default;
+$ttl-md: 2.3rem !default;
+$ttl-lg: 3.2rem !default;
+// Font Family
+$font-family: "Oxygen", sans-serif;
+$d-ico: "deafult-icons" !default;
+//button
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 500;
+$font-semibold: 600;
+$font-bold: 700;
+$font-weight-title: $font-semibold;
+// Spacing
+$gutter-1: 30px !default; // 30px
+$spacing: 50px !default; // 50px.
+// zindex
+$header-z: 999;
+$filter-z: 99;
+
+:root {
+  --blue-normal-2: #294f74;
+  --blue-light-2: #5b80a3;
+  --red-2: #be3434;
+  --dark-2: #323232;
+  --gray-normal-2: #a6a6a6;
+  --gray-light-2: #d2d3d2;
+  --white-2: #ffffff;
+  --darker-gray-2: #8d8d8d;
+  --icon-color-dark-2: #3b3b3b;
+  --background-overlay-2: rgba(50, 50, 50, 0.7);
+  --icon-color-dark-grey-2: #818181;
+  --background-chart-gray-2: #f7f7f7;
+  --icon-color-light-grey-2: #bfbfbf;
+}
+
+.color-blue {
+  color: var(--blue-normal-2);
+}
+.color-blue-light {
+  color: var(--blue-light-2);
+}
+.color-red {
+  color: var(--red-2);
+}
+.color-dark {
+  color: var(--dark-2);
+}
+.color-gray {
+  color: var(--gray-normal-2);
+}
+.color-gray-light {
+  color: var(--gray-light-2);
+}
+.color-white {
+  color: var(--gray-white-2);
+}
+.color-darker-gray {
+  color: var(--gray-darker-gray-2);
+}
+.color-icon-color-dark {
+  color: var(--icon-color-dark-2);
+}
+.color-background-overlay {
+  color: var(--background-overlay-2);
+}
+.icon-color-dark-grey {
+  color: var(--icon-color-dark-grey-2);
+}
+.background-chart-gray{
+  color: var(--background-chart-gray-2);
+}
+.icon-color-light-grey{
+  color: var(--icon-color-light-grey-2);
+}
+
+

@@ -1,0 +1,81 @@
+/*==== Menu ====*/
+
+.ck-list-menu {
+    /* padding-left: 45px; */
+}
+
+.ck-list-menu .form-check {
+    padding-left: 0;
+}
+
+.ck-list-menu ul {
+    margin: 0;
+    padding: 0;
+    display: block;
+    margin-top: 0px;
+    position: relative;
+}
+
+
+/* .ck-list-menu ul ::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    content: "";
+    width: 1px;
+    background: #c0c0c0;
+} */
+
+.ck-list-menu ul {
+    margin: 0px 0px 0px 20px;
+    list-style: none;
+    line-height: 2em;
+    font-family: Arial;
+}
+
+.ck-list-menu ul ul {
+    display: none;
+}
+
+.ck-list-menu ul li {
+    position: relative;
+}
+
+.ck-list-menu ul li:before {
+    position: absolute;
+    left: -15px;
+    top: -4px;
+    content: '';
+    display: block;
+    border-left: 1px solid #ddd;
+    height: 1em;
+    border-bottom: 1px solid #ddd;
+    width: 10px;
+}
+
+.ck-list-menu ul li:after {
+    position: absolute;
+    left: -15px;
+    bottom: -7px;
+    content: '';
+    display: block;
+    border-left: 1px solid #ddd;
+    height: 100%;
+}
+
+.ck-list-menu ul li.root {
+    margin: 0px 0px 0px -20px;
+}
+
+.ck-list-menu ul li.root:before {
+    display: none;
+}
+
+.ck-list-menu ul li.root:after {
+    display: none;
+}
+
+.ck-list-menu ul li:last-child:after {
+    display: none;
+}

@@ -1,0 +1,1 @@
+$(document).ready(function(){feather.replace(),$tabCard=$(".feature-card"),$tabCard.on("click",function(){$this=$(this);let a=$this.data("tab");$tabCard.removeClass("active"),$this.addClass("active"),$(".tab-panel").hide(),$("#"+a).show()})});

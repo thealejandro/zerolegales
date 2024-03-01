@@ -1,0 +1,33 @@
+/*  ===============
+  1. Reset
+===============  */
+
+html {
+    font-size: 16px;
+    overflow: auto;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+
+  
+}
+
+body {
+    position: relative;
+    margin: 0 auto;
+    padding-top: size(80);
+    font-size: size(14);
+    line-height: normal;
+}
+section {
+  padding: 80px 0;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+  background-color: var(--white-2);
+}
+
+html, body {
+  overflow: hidden;
+}

@@ -1,0 +1,435 @@
+
+.ttl {
+	@include font-semibold();
+	@include px-rem(32,margin-bottom);
+	h1,h2,h3,h4,h5,h6,p {
+		font-size: inherit;
+		margin: inherit;
+		color: inherit;
+		padding: inherit;
+		span {
+			display: block;
+		}
+		a {
+			color: inherit;
+			&:hover {
+				color: $hover;
+			}
+		}
+	}
+	&.white{
+		color: #fff;
+	}
+	&.black{
+		color: #000;
+	}
+	&.center {
+		text-align: center;
+	}
+	.mb-0 {
+		margin-bottom: 0;
+	}
+}
+.ttl-sec {
+	color: $title-color;
+	display: block;
+	@include px-rem(32);
+	&.white {
+		color: $white;
+	}
+	&.black {
+		color: $black;
+	}
+	&.ttu {
+		text-transform: uppercase;
+	}
+	&.mb-0 {
+		margin-bottom: 0;
+	}
+	&.center {
+		text-align: center;
+	}
+	small {
+		display: block;
+		font-weight: 300;
+		text-transform: none;
+	}
+}
+.ttl-page {
+	color:  $title-color;
+	&.white {
+		color: $white;
+	}
+	&.black {
+		color: $black;
+	}
+	&.ttu {
+		text-transform: uppercase;
+	}
+	&.mb-0 {
+		margin-bottom: 0;
+	}
+	&.center {
+		text-align: center;
+	}
+}
+	
+.ttl-lg {
+	font-size: $ttl-lg;
+	line-height: 1.3;
+	
+}
+.ttl-md {
+	font-size: $ttl-md;
+	line-height: 1.3;
+	
+}
+.ttl-sm {
+	font-size: $ttl-sm;
+	margin-bottom: 0.5rem;
+}
+
+.HeadlineH1-2 {
+	font-family: Roboto;
+	font-size: size(60);
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--blue-normal-2);
+  }
+
+  .HeadlineH2-2 {
+	font-family: Roboto;
+	font-size: size(40);
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--dark-2);
+  }
+
+  .HeadlineH3-2 {
+	font-family: Roboto;
+	font-size: size(24);
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: var(--dark-2);
+  }
+  .HeadlineH4-2 {
+	font-family: Roboto;
+	font-size: size(18);
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--dark-2);
+  }
+  .HeaderSelected-2 {
+	font-family: Roboto;
+	font-size: size(16);
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: var(--white-2);
+  }
+  .HeadlineH6-Blue-2 {
+	font-family: Roboto;
+	font-size: size(16);
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--blue-normal-2);
+  }
+  .HeadlineH6-2 {
+	font-family: Roboto;
+	font-size: size(16);
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--gray-normal-2);
+  }
+  .HeadlineH5---Center-2 {
+	font-family: Roboto;
+	font-size: size(16);
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: var(--blue-normal-2);
+  }
+  .HeaderNormal-2 {
+	font-family: Roboto;
+	font-size: size(16);
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: var(--white-2);
+  }
+  .FooterTitle-2 {
+	font-family: Roboto;
+	font-size: size(14);
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--white-2);
+  }
+  .Calendar-DayAvailable-2 {
+	font-family: Roboto;
+	font-size: size(14);
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: #1b1d1d;
+  }
+  .Calendar-DayAnother-Month-2 {
+	font-family: Roboto;
+	font-size: size(14);
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: #e0e0e0;
+  }
+  .MenuSelected-2 {
+	font-family: Roboto;
+	font-size: size(14);
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--icon-color-dark-2);
+  }
+  .MenuOptions-2 {
+	font-family: Roboto;
+	font-size: size(14);
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--white-2);
+  }
+  .LinkNot-Active-2 {
+	font-family: Roboto;
+	font-size: size(14);
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--gray-normal-2);
+  }
+  .LinkActive-Dark-2 {
+	font-family: Roboto;
+	font-size: size(14);
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--dark-2);
+  }
+  .LinkActive-2 {
+	font-family: Roboto;
+	font-size: size(14);
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--blue-normal-2);
+  }
+  .HeadlineH5-2 {
+	font-family: Roboto;
+	font-size: size(14);
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--gray-normal-2);
+  }
+  .FooterSubtitle-2 {
+	font-family: Roboto;
+	font-size: size(14);
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--white-2)!important;
+	a{
+		color: var(--white-2)!important;	
+	}
+  }
+  .ChartsVacacionesNulo-2 {
+	font-family: Roboto;
+	font-size: size(14);
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: var(--gray-normal-2);
+  }
+  .ChartsVacacionesCantidad-2 {
+	font-family: Roboto;
+	font-size: size(14);
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: var(--icon-color-dark-2);
+  }
+  .BodyBullet-List-2 {
+	font-family: Roboto;
+	font-size: size(14);
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--dark-2);
+  }
+  .BodyBody-Center-2 {
+	font-family: Roboto;
+	font-size: size(14);
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: var(--icon-color-dark-2);
+  }
+  .BodyBody-2 {
+	font-family: Roboto;
+	font-size: size(14);
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--dark-2);
+  }
+  .ButtonWhite-2 {
+	font-family: Roboto;
+	font-size: size(12);
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: 0.75px;
+	text-align: center;
+	color: var(--white-2);
+  }
+  .ButtonDark-2 {
+	font-family: Roboto;
+	font-size: size(12);
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: 0.75px;
+	text-align: center;
+	color: var(--dark-2);
+  }
+  .FooterCopyright-2 {
+	font-family: Roboto;
+	font-size: size(12);
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--gray-normal-2);
+  }
+  .BodySmall-Center-2 {
+	font-family: Roboto;
+	font-size: size(12);
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: var(--gray-normal-2);
+  }
+  .BodySmall-2 {
+	font-family: Roboto;
+	font-size: size(12);
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--gray-normal-2);
+  }
+  .Tiene-0-aos-de-edad {
+	
+	margin: -6px 0 0px 20px;
+	font-family: Roboto;
+	font-size: size(14);
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--dark-2);
+  }
+  .HeadlineH5-2 {
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: var(--gray-normal-2);
+  }
+
+  .price-info{
+	font-family: Roboto;
+	font-size: 28px;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: right;
+	color: var(--blue-normal-2);
+  }
+  .fn-bold{
+	  font-weight: bold;
+  }
