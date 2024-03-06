@@ -11,6 +11,7 @@
         "php": "^7.2.5|^8.0",
         "a17mad/laravel-cybersource": "^1.2",
         "barryvdh/laravel-dompdf": "^0.8.7",
+        "cybersource/rest-client-php": "^0.0.40",
         "doctrine/dbal": "^2.12",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^7.2",
