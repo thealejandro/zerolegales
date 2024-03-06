@@ -1,13 +1,13 @@
 <?php
 return array(
     /**
-     * 
+     *
      */
 
-    "profile_id" => "4F682E42-6B73-4CEC-A649-E7BBA67B0567",
-    "access_key" => "8f81b945d22d3afc93797fda6bb276ff",
-    "secret_key" => "80707f8c4f0848e7b334ee261c983eee03f34fa1ef6a4c60a90e25222d6c6beb0a990c76f6434eb4817cb15b9df6438f27199d9c3f7d4235a19ecc5a84bd96161e0d7110b4ee478f90d02c01dd4bc621530a75c8309742a0b51b1f2628be220141821895d0af4ac89526f500596c6d41aa985435fa8240ad9a439b6926c0b20a",
-    
+    "profile_id" => "A336537A-19C0-4981-8C4F-3E076250FD67",
+    "access_key" => "df1b374b581c31f2980af86c8d4e2ad4",
+    "secret_key" => "7f081349a4c64141a6bbf7fd57a0a9fdf5e3d9dcc46e4e2e930f2aa7fee9c46c3bc64484eb3443b1a8d1131a3c321ef4b5eae3747d0e431d9f0887c883621a0d3d1934926de44913a969d7aec9de489f7366f8ca1e874ad59a6def7cdc92614102b5a609ee3c437d8b1afabf518433968e0495cd4543450a93182d1f955482e5",
+
 
 
 
@@ -28,7 +28,8 @@ return array(
      * The Endpoint to hit
      * Change between test and prod environments
      */
-    'wsdl_endpoint' => 'https://ics2wsa.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.158.wsdl',
+    // 'wsdl_endpoint' => 'https://ics2wsa.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.158.wsdl',
+    'wsdl_endpoint' => 'https://ics2wsa.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.216.wsdl',
     /**
      * Probably not necessary - currently not being used
      */
@@ -45,8 +46,8 @@ return array(
         'endpoint' => 'https://ebc.cybersource.com/ebc/',
         'version' => '0.1',
         'api_version' =>  '2011-03',
-        'username' => 'herramientaslegales',
-        'password' => 'HerramientasLegales2021$',
+        'username' => 'jdieguez',
+        'password' => 'gdv2hfc.ket-dmk!ZNQ',
     ),
     /**
      * Both the merchant and transaction IDs
@@ -61,8 +62,8 @@ return array(
     /**
      * Cybersource Username/Password info
      */
-    'username' => 'herramientaslegales',
-    'password' => 'HerramientasLegales2021$',
+    'username' => 'jdieguez',
+    'password' => 'gdv2hfc.ket-dmk!ZNQ',
     /**
      * Translated result codes to be returned
      * as part of the CybersourceResponse

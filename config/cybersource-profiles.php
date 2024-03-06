@@ -2,11 +2,11 @@
 
 /* Cybersource Secure Acceptance W/M Profile Config*/
 define('MERCHANT_ID', 'visanetgt_herramientaslegales');
-define('PROFILE_ID',  '4F682E42-6B73-4CEC-A649-E7BBA67B0567');
-define('ACCESS_KEY',  '8f81b945d22d3afc93797fda6bb276ff');
-define('SECRET_KEY',  '80707f8c4f0848e7b334ee261c983eee03f34fa1ef6a4c60a90e25222d6c6beb0a990c76f6434eb4817cb15b9df6438f27199d9c3f7d4235a19ecc5a84bd96161e0d7110b4ee478f90d02c01dd4bc621530a75c8309742a0b51b1f2628be220141821895d0af4ac89526f500596c6d41aa985435fa8240ad9a439b6926c0b20a');
+define('PROFILE_ID',  'A336537A-19C0-4981-8C4F-3E076250FD67');
+define('ACCESS_KEY',  'df1b374b581c31f2980af86c8d4e2ad4');
+define('SECRET_KEY',  '7f081349a4c64141a6bbf7fd57a0a9fdf5e3d9dcc46e4e2e930f2aa7fee9c46c3bc64484eb3443b1a8d1131a3c321ef4b5eae3747d0e431d9f0887c883621a0d3d1934926de44913a969d7aec9de489f7366f8ca1e874ad59a6def7cdc92614102b5a609ee3c437d8b1afabf518433968e0495cd4543450a93182d1f955482e5');
 
-// DF TEST: 1snn5n9w, LIVE: k8vif92e 
+// DF TEST: 1snn5n9w, LIVE: k8vif92e
 define('DF_ORG_ID', 'k8vif92e');
 
 // PAYMENT URL
@@ -26,7 +26,7 @@ define('PROFILE_ID_S',  '');
 define('ACCESS_KEY_S',  '');
 define('SECRET_KEY_S',  '');
 
-// DF TEST: 1snn5n9w, LIVE: k8vif92e 
+// DF TEST: 1snn5n9w, LIVE: k8vif92e
 define('DF_ORG_ID_S', 'k8vif92e');
 
 // PAYMENT URL
