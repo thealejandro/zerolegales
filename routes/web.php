@@ -19,7 +19,7 @@
 
 // Auth::routes(['register' => false]);
 
-//Auth::routes(['verify' => true]); 
+//Auth::routes(['verify' => true]);
 
 /*---------------------------------Front End -----------------------------------------------*/
 Route::get('/', 'Front\LegalDocumentController@index')->name('front.index');
@@ -34,7 +34,7 @@ Route::post('price-index-list', 'Front\PriceController@indexList')->name('price.
 Route::get('document-list/search', 'Front\LegalDocumentController@search')->name('document.search');
 
 Route::get('myfolders-list', 'Front\SubscriptionController@myFolders')->name('myfolder.list');
-      
+
 Route::get('user/create', 'Front\UserController@create')->name('user.create');
 
 Route::post('user/store', 'Front\UserController@store')->name('user.store');
@@ -153,7 +153,7 @@ Route::name('user.')->middleware(['auth'])->group(function () {
 
     Route::post('myfolder/legalisation', 'Front\SubscriptionController@legalisationMyFolder')->name('myfolder.legalisation');
 
-    
+
 
     Route::get('document-filling/nosubscription/fill-buy/edit/{id}/{u_id}', 'Front\DocumentFillingController@editFillBuy')->name('nosubscription.fill.buy.edit');
 
@@ -162,7 +162,7 @@ Route::name('user.')->middleware(['auth'])->group(function () {
     Route::get('document-filling/nosubscription/buy-fill/edit/{id}/{u_id}', 'Front\DocumentFillingController@editBuyFill')->name('nosubscription.buy.fill.edit');
 
     Route::post('document-filling/nosubscription/buy-fill/update', 'Front\DocumentFillingController@updateBuyFill')->name('nosubscription.buy.fill.update');
-    
+
     Route::post('legaldocument/change', 'Front\DocumentFillingController@change')->name('legaldocument.change');
 
     Route::post('legaldocument/store', 'Front\LegalizationController@store')->name('legaldocument.store');
@@ -178,13 +178,13 @@ Route::name('user.')->middleware(['auth'])->group(function () {
     // Route::post('legalisation/purchase', 'Front\PurchaseController@storeLegalisationPurchase')->name('legalisation.purchase');
 
     Route::get('checklist/download/{id}', 'Front\ChecklistController@downloadCheckList')->name('checklist.download');
-    
+
     Route::get('document-purchase/show/{id}/', 'Front\LegalizationController@purchaseDetails')->name('document.purchase.details');
 
     Route::get('legalisation/state','Front\LegalizationController@legalisationState')->name('legalisation.state');
 
     Route::get('legalisation/loading','Front\LegalizationController@loadingLegalisation')->name('legalisation.loading');
-    
+
     Route::get('document-purchase/after/{id}/{u_id}', 'Front\DocumentFillingController@afterPurchase')->name('document.purchase.after');
 
     Route::get('after/purchase/edit/{id}/{u_id}', 'Front\DocumentFillingController@editAfterPurchase')->name('after.purchase.edit');
@@ -194,7 +194,7 @@ Route::name('user.')->middleware(['auth'])->group(function () {
     Route::get('document-filling/continue-process/{u_id}/{id}', 'Front\DocumentFillingController@removeWatermark')->name('document.filling.process');
 
     Route::get('document-progress', 'Front\DocumentFillingController@documentInProgress')->name('document.progress');
-    
+
     Route::get('document/download/{u_id}/{id}', 'Front\DocumentFillingController@pdfDownload')->name('document.download');
 
     //Route::get('document/after-download/{u_id}/{id}', 'Front\DocumentFillingController@afterDownload')->name('document.after.download');
@@ -203,11 +203,11 @@ Route::name('user.')->middleware(['auth'])->group(function () {
 
     Route::post('prices-list', 'Front\PriceController@indexList')->name('price.list');
 
-    
+
     Route::any('user/logout', 'Front\LoginController@logout')->name('logout');
 
     Route::get('profile','Front\ProfileController@getProfile')->name('profile');
-    
+
     Route::post('user/profile-image','Front\ProfileController@changeProfileImage')->name('profile-image');
 
     Route::get('user/profile-image/current/{data}','Front\ProfileController@currentPasswordCheck')->name('profile-image-current');
@@ -215,9 +215,9 @@ Route::name('user.')->middleware(['auth'])->group(function () {
     Route::post('user/account-data','Front\ProfileController@saveAccountData')->name('account-data');
 
     Route::post('user/personal-data','Front\ProfileController@savePersonalData')->name('personal-data');
-    
+
     Route::get('document-filling/view-pdf/{u_id}/{id}', 'Front\DocumentFillingController@documentPdfVAiew')->name('document.filling.pdf');
-    
+
     Route::post('download-status/update', 'Front\DocumentFillingController@updateDownloadStatus')->name('download.status.update');
 
 
@@ -241,7 +241,7 @@ Route::name('user.')->middleware(['auth'])->group(function () {
     Route::get('payment/success/mail', 'Front\MailController@successPayment')->name('payment.success.mail');
 
     Route::get('subscription/purchase', 'Front\MailController@subscriptionPurchase')->name('subscription.purchase.mail');
-    
+
     Route::get('user/purchase/history', 'Front\PurchaseController@userPurchaseHistory')->name('purchase.history');
 
     Route::get('cybersource/payment/user/save-invoice-data/{id}/{isCheck}/{nit?}/{name?}/{address?}','Front\InvoiceDataController@saveSubscribedInvoiceData')->name('save-invoice-data');
@@ -283,13 +283,13 @@ Route::name('user.')->middleware(['auth'])->group(function () {
 
 
 
-    //Payment In Document filling 
+    //Payment In Document filling
     Route::get('buy-fill/document-purchase/invoice/{id}', 'Front\PurchaseController@invoiceBuyFillDocumentPurchase')->name('buy.fill.document.purchase.invoice');
     Route::get('fill-buy/document-purchase/invoice/{id}/{u_id}', 'Front\PurchaseController@invoiceFillBuyDocumentPurchase')->name('fill.buy.document.purchase.invoice');
     Route::get('fill-buy/purchase/invoice/{id}/{u_id}', 'Front\PurchaseController@invoiceFillBuyPurchase')->name('fill.buy.purchase.invoice');
     Route::get('buy-fill/legalisation/invoice/{id}/{u_id}', 'Front\PurchaseController@invoiceLegalisationPurchase')->name('buy.fill.legalisation.invoice');
     Route::get('checklist/invoice/{id}', 'Front\PurchaseController@invoiceChecklist')->name('checklist.invoice');
-    Route::get('myfolder/legalisation/invoice/{id}/{u_id}', 'Front\PurchaseController@invoiceMyFolderLegalisationPurchase')->name('myfolder.legalisation.invoice'); 
+    Route::get('myfolder/legalisation/invoice/{id}/{u_id}', 'Front\PurchaseController@invoiceMyFolderLegalisationPurchase')->name('myfolder.legalisation.invoice');
 });
 
 /*----------------------------------Admin---------------------------------------------------*/
@@ -297,7 +297,7 @@ Route::name('user.')->middleware(['auth'])->group(function () {
 Route::any('system-admin-login',  'Admin\Auth\LoginController@index')->name('admin_login');
 
 Route::post('/login/admin', 'Admin\Auth\LoginController@adminLogin')->name('admin_login');
- 
+
 Route::name('admin.')->middleware(['admin'])->group(function () {
 
     Route::get('admin/dashboard', 'Admin\AdminController@adminDashboard')->name('dashboard');
@@ -332,7 +332,7 @@ Route::name('admin.')->middleware(['admin'])->group(function () {
     Route::post('lawyers-directory/update/{id}', 'Admin\LawyersDirectoryController@update')->name('lawyers.directory.update');
     Route::post('lawyers-directory/delete/{id}', 'Admin\LawyersDirectoryController@destroy');
     Route::get('lawyers-directory/changeStatus', 'Admin\LawyersDirectoryController@changeStatus');
-    
+
     Route::post('assign/price', 'Admin\LawyersDirectoryController@assignPrice')->name('lawyers.directory.assign.price');
     Route::post('price/update', 'Admin\LawyersDirectoryController@updatePrice')->name('lawyers.directory.update.price');
 
@@ -358,7 +358,7 @@ Route::name('admin.')->middleware(['admin'])->group(function () {
     Route::post('template/document-variable/delete/{id}', 'Admin\LegalDocumentTemplateController@destroyVariableDocument');
     Route::get('template/get-all-variables', 'Admin\LegalDocumentTemplateController@getInputVariables');
     Route::get('template/edit-iput-variables', 'Admin\LegalDocumentTemplateController@getEditFormInputVariables');
-    
+
     Route::get('input-variable','Admin\InputVariableController@index')->name('input.variable.index');
     Route::get('input-variable/create', 'Admin\InputVariableController@create')->name('input.variable.create');
     Route::post('input-variable/store', 'Admin\InputVariableController@store')->name('input.variable.store');
