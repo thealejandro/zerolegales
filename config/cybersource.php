@@ -4,20 +4,22 @@ return array(
      *
      */
 
-    // "profile_id" => "E9FD976B-2310-405B-9E39-DCDEE7663851",
-    // "access_key" => "df1b374b581c31f2980af86c8d4e2ad4",
-    // "secret_key" => "7f081349a4c64141a6bbf7fd57a0a9fdf5e3d9dcc46e4e2e930f2aa7fee9c46c3bc64484eb3443b1a8d1131a3c321ef4b5eae3747d0e431d9f0887c883621a0d3d1934926de44913a969d7aec9de489f7366f8ca1e874ad59a6def7cdc92614102b5a609ee3c437d8b1afabf518433968e0495cd4543450a93182d1f955482e5",
+     /**
+      * Informacion de perfil de cybersource que se utiliza en codigo de los controladores
+      * para generar las ordenes de pago.
+      */
 
-    "profile_id" => "178BB64F-5BFD-48C4-B6C2-FAAC95DD7074",
-    "access_key" => "045419e6f2ae3c97a5400db463b34ace",
-    "secret_key" => "47ebab961bfa477ead11a118671ee136a55c02552ec7490e8e7dd3ddf6bb5b70b3673e355aa84801825591e1b3c5a0a7c225385bedbe40729f9cc1852ea325384008c7f19a1045168750e281f32741aa3295ec941a214f17900d69805986849a778e2d3780814a159e5e35b171c042abf5d4fe331dc34dfc88c98cb32cedbf02",
+    "profile_id" => "E9FD976B-2310-405B-9E39-DCDEE7663851",
+    "access_key" => "df1b374b581c31f2980af86c8d4e2ad4",
+    "secret_key" => "7f081349a4c64141a6bbf7fd57a0a9fdf5e3d9dcc46e4e2e930f2aa7fee9c46c3bc64484eb3443b1a8d1131a3c321ef4b5eae3747d0e431d9f0887c883621a0d3d1934926de44913a969d7aec9de489f7366f8ca1e874ad59a6def7cdc92614102b5a609ee3c437d8b1afabf518433968e0495cd4543450a93182d1f955482e5",
 
 
     /**
-     * The timezone to be used by cybersource
+     * Tipo de ambiente que se utiliza para las credenciales correspondientes.
+     * live => produccion, test => desarrollo.
      */
-    // 'env' => 'live',
-    'env' => 'test',
+    'env' => 'live',
+    // 'env' => 'test',
     /**
      * The timezone to be used by cybersource
      */
@@ -25,14 +27,13 @@ return array(
     /**
      * The organization ID when creating the cybersource account
      */
-    // 'organization_id' => 'visanetgt_herramientaslegales',
-    'organization_id' => 'thecodie_1709761324',
+    'organization_id' => 'visanetgt_herramientaslegales',
     /**
      * The Endpoint to hit
      * Change between test and prod environments
      */
-    'wsdl_endpoint' => 'https://ics2wstesta.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.216.wsdl',
-    // 'wsdl_endpoint' => 'https://ics2wsa.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.216.wsdl',
+    // 'wsdl_endpoint' => 'https://ics2wstesta.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.216.wsdl',
+    'wsdl_endpoint' => 'https://ics2wsa.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.216.wsdl',
     /**
      * Probably not necessary - currently not being used
      */
@@ -46,34 +47,32 @@ return array(
      * Change between test and prod environments
      */
     'reports' => array(
-        // 'endpoint' => 'https://ebc.cybersource.com/ebc2/',
-        'endpoint' => 'https://ebctest.cybersource.com/ebc2/',
+        'endpoint' => 'https://ebc.cybersource.com/ebc2/',
+        // 'endpoint' => 'https://ebctest.cybersource.com/ebc2/',
         'version' => '0.1',
         'api_version' =>  '2011-03',
-        'username' => 'thealejandro',
-        'password' => 'UDZ*myk-zxv6nkf*wry',
-        // 'username' => 'jdieguez',
-        // 'password' => 'gdv2hfc.ket-dmk!ZNQ',
+        'username' => 'jdieguez',
+        'password' => 'gdv2hfc.ket-dmk!ZNQ',
     ),
+
     /**
      * Both the merchant and transaction IDs
      */
-    // 'merchant_id' => 'visanetgt_herramientaslegales',
-    'merchant_id' => 'thecodie_1709761324',
+    'merchant_id' => 'visanetgt_herramientaslegales',
     'merchant_reference_code' => '',
     'transaction_id' => '',
+
     /**
      * Timeout for requests
      */
     'timeout' => '10',
+
     /**
      * Cybersource Username/Password info
      */
-    // 'username' => 'jdieguez',
-    // 'password' => 'gdv2hfc.ket-dmk!ZNQ',
+    'username' => 'jdieguez',
+    'password' => 'gdv2hfc.ket-dmk!ZNQ',
 
-    'username' => 'thealejandro',
-    'password' => 'UDZ*myk-zxv6nkf*wry',
     /**
      * Translated result codes to be returned
      * as part of the CybersourceResponse
