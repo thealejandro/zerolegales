@@ -263,13 +263,16 @@ class PriceController extends Controller
         // Configura las credenciales de autenticación
         $config = new \CyberSource\Configuration();
         // $config->setMerchantId('thecodie_1709761324');
+        $config->setUsername('thealejandro');
+        $config->setPassword('UDZ*myk-zxv6nkf*wry');
         $config->setApiKey(0,'bcdf24b6-8151-43d3-8289-ebd39c6c31d7');
+        // $config->setSecretKey('FSZse5htzzv4zBABlzdAE02c19A8KNRGzxdr9wrNWLI=');
         $config->setHost('apitest.cybersource.com');
-        // $config->setHost('https://apitest.cybersource.com');
         // $config->setHost('https://apitest.cybersource.com/pts/v2/payments');
 
         $merchantConfig = new \CyberSource\Authentication\Core\MerchantConfiguration();
         $merchantConfig->setMerchantID('thecodie_1709761324');
+        $merchantConfig->setSecretKey('FSZse5htzzv4zBABlzdAE02c19A8KNRGzxdr9wrNWLI=');
 
         // Crea una instancia del cliente de API de pagos
         $api_client = new \CyberSource\ApiClient($config, $merchantConfig);
@@ -278,7 +281,8 @@ class PriceController extends Controller
         // Configura los datos de la transacción
         $payment_request = new \CyberSource\Model\CreatePaymentRequest();
         $payment_request["clientReferenceInformation"] = new \CyberSource\Model\Ptsv2paymentsClientReferenceInformation();
-        $payment_request["clientReferenceInformation"]["code"] = "TC50171_3";
+        // $payment_request["clientReferenceInformation"]["code"] = "TC50171_3";
+        $payment_request["clientReferenceInformation"]["code"] = uniqid(); // Genera un código único
 
         $payment_request["orderInformation"] = new \CyberSource\Model\Ptsv2paymentsOrderInformation();
         $payment_request["orderInformation"]["amountDetails"] = new \CyberSource\Model\Ptsv2paymentsOrderInformationAmountDetails();
@@ -295,14 +299,13 @@ class PriceController extends Controller
         $payment_request["processingInformation"] = new \CyberSource\Model\Ptsv2paymentsProcessingInformation();
         $payment_request["processingInformation"]["capture"] = true;
 
-        dd($payment_request);
-
         try {
             // Realiza la solicitud de pago
             $result = $api_instance->createPayment($payment_request);
             return response()->json($result);
         } catch (\CyberSource\ApiException $e) {
-            return response()->json($e->getResponseBody(), 500);
+            Log::error('Error al procesar el pago: ' . $e->getMessage());
+            return response()->json(['error' => 'Error:'.$e->getMessage()], 500); //getResponseBody()
         }
     }
 }

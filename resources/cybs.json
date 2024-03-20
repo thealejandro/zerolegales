@@ -1,0 +1,15 @@
+{
+    "authenticationType"    : "http_signature",
+    "merchantID"            : "thecodie_1709761324",
+    "keyAlias"		        : "testrest",
+    "keyFilename"           : "testrest",
+    "keyPass"	            : "testrest",
+    "keysDirectory"	        : "../../CybersourceAuthenticationSdkPhp/resource/",
+    "merchantKeyId"         : "bcdf24b6-8151-43d3-8289-ebd39c6c31d7",
+    "merchantsecretKey"     : "FSZse5htzzv4zBABlzdAE02c19A8KNRGzxdr9wrNWLI=",
+    "enableLog"             : true,
+    "logFilename"           : "Cybs.log",
+    "logDirectory"          : "D://Log/",
+    "logSize"               : "1048576",
+    "runEnvironment"        : "CyberSource.Environment.sandbox"
+}
