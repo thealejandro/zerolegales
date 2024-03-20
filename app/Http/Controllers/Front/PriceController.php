@@ -61,251 +61,200 @@ class PriceController extends Controller
         return response()->json($json_data);
     }
 
-    // public function purchase($price)
-    // {
-    //     $cybersource_conf = \Config::get('cybersource');
-    //     $auth_id = Auth::user()->id;
-    //     $price = $this->priceRepo->getSubscriptionData($price);
-    //     $userData = $this->priceRepo->getUserData($auth_id);
-    //     $creditData = $this->priceRepo->getCreditData($auth_id);
-    //     if($creditData){
-    //         $amount = $price['price']-$creditData['credit_amount'];
-    //     } else {
-    //         $amount = $price['price'];
-    //     }
-    //   //$amount = 1;
-
-    //     if($amount>0){
-    //         $user_ip = $_SERVER['REMOTE_ADDR'];
-    //         $transaction_uuid = mt_rand(1000000000000,9999999999999);
-    //         if($price['subscription_id'] == 2 && $price['payment_type'] == "Monthly") {
-    //             $transaction_type = "Suscripción mensual estándar";
-    //         } elseif($price['subscription_id'] == 2 && $price['payment_type'] == "Annual") {
-    //             $transaction_type = "Suscripción anual estándar";
-    //         } elseif($price['subscription_id'] == 3 && $price['payment_type'] == "Monthly") {
-    //             $transaction_type = "Suscripción mensual premium";
-    //         } elseif($price['subscription_id'] == 3 && $price['payment_type'] == "Annual") {
-    //             $transaction_type = "Suscripción anual premium";
-    //         } else {
-    //             $transaction_type = "";
-    //         }
-
-    //         // //Send Mail
-    //         // $purchase_subscription = $this->mailRepo->subscriptionPurchaseMail($userData,$transaction_type,$amount,$transaction_uuid);
-    //         // //End Mail
-
-    //         $invoiceData = [
-    //             'user_id'   =>  $auth_id,
-    //             'subscription_id'   =>  $price['subscription_id'],
-    //             'price_id'   =>  $price['id'],
-    //             'price' =>  $amount,
-    //             'transaction_uuid' => $transaction_uuid,
-    //             'transaction_type' => $transaction_type,
-    //         ];
-    //         $invoice = $this->priceRepo->createInvoice($invoiceData);
-    //         $data = [
-    //             "profile_id" => $cybersource_conf['profile_id'],
-    //             "access_key" => $cybersource_conf['access_key'],
-    //             "secret_key" => $cybersource_conf['secret_key'],
-    //             "transaction_uuid" => $transaction_uuid,
-    //             "signed_date_time" => gmdate("Y-m-d\TH:i:s\Z"),
-    //             "signed_field_names" => "profile_id,access_key,transaction_uuid,signed_field_names,unsigned_field_names,signed_date_time,locale,transaction_type,reference_number,auth_trans_ref_no,amount,currency,merchant_descriptor,override_custom_cancel_page,override_custom_receipt_page",
-    //             "unsigned_field_names" => "device_fingerprint_id,signature,bill_to_forename,bill_to_surname,bill_to_email,bill_to_phone,bill_to_address_line1,bill_to_address_line2,bill_to_address_city,bill_to_address_state,bill_to_address_country,bill_to_address_postal_code,customer_ip_address,line_item_count,item_0_code,item_0_sku,item_0_name,item_0_quantity,item_0_unit_price,item_1_code,item_1_sku,item_1_name,item_1_quantity,item_1_unit_price,merchant_defined_data1,merchant_defined_data2,merchant_defined_data3,merchant_defined_data4",
-    //             "transaction_type" => "sale",
-    //             "reference_number" => "B1611055676089",
-    //             "auth_trans_ref_no" => "B1611055676089",
-    //             "amount" => $amount,
-    //             "currency" => "GTQ",
-    //             "locale" => "es-us",
-    //             "merchant_descriptor" => $userData['first_name'],
-    //             "bill_to_forename" => $userData['first_name'],
-    //             "bill_to_surname" => $userData['surname'],
-    //             "bill_to_email" => $userData['email'],
-    //             "bill_to_phone" => "",
-    //            "bill_to_address_line1" => "Guatemala",
-    //             "bill_to_address_line2" => "",
-    //             "bill_to_address_city" => "Guatemala",
-    //             "bill_to_address_state" => "Guatemala",
-    //             "bill_to_address_country" => "GT",
-    //             "bill_to_address_postal_code" => "",
-    //             "override_custom_cancel_page" => url('/')."/cybersource/payment/response/cancel",
-    //             "override_custom_receipt_page" => url('/')."/cybersource/payment/response",
-    //             // "override_custom_receipt_page" => "http://herramientas.localhost/cybersource/payment/response",
-    //             "customer_ip_address" => $user_ip,
-    //             "line_item_count" => "2",
-    //             "item_0_sku" => "sku001",
-    //             "item_0_code" => "KFLTFDIV",
-    //             "item_0_name" => "KFLTFDIV",
-    //             "item_0_quantity" => "1",
-    //             "item_0_unit_price" => $amount,
-    //             "item_1_sku" => "sku002",
-    //             "item_1_code" => "KFLTFD70",
-    //             "item_1_name" => "KFLTFD70",
-    //             "item_1_quantity" => "1",
-    //             "item_1_unit_price" => $amount,
-    //             "merchant_defined_data1" => "MDD#1",
-    //             "merchant_defined_data2" => "MDD#2",
-    //             "merchant_defined_data3" => "MDD#3",
-    //             "merchant_defined_data4" => "MDD#4",
-    //             "allow_payment_token_update"=>"false",
-    //             "auth_type"=>"AUTOCAPTURE",
-    //             "bill_payment"=>"true",
-
-
-
-    //         ];
-    //         if($price['payment_type'] == "Monthly")
-    //         {
-    //             $data = [
-    //                 "profile_id" => $cybersource_conf['profile_id'],
-    //                 "access_key" => $cybersource_conf['access_key'],
-    //                 "secret_key" => $cybersource_conf['secret_key'],
-    //                 "transaction_uuid" => $transaction_uuid,
-    //                 "signed_date_time" => gmdate("Y-m-d\TH:i:s\Z"),
-    //                 "signed_field_names" => "profile_id,access_key,transaction_uuid,signed_field_names,unsigned_field_names,signed_date_time,locale,transaction_type,reference_number,auth_trans_ref_no,amount,currency,merchant_descriptor,override_custom_cancel_page,override_custom_receipt_page",
-    //                 "unsigned_field_names" => "device_fingerprint_id,signature,bill_to_forename,bill_to_surname,bill_to_email,bill_to_phone,bill_to_address_line1,bill_to_address_line2,bill_to_address_city,bill_to_address_state,bill_to_address_country,bill_to_address_postal_code,customer_ip_address,line_item_count,item_0_code,item_0_sku,item_0_name,item_0_quantity,item_0_unit_price,item_1_code,item_1_sku,item_1_name,item_1_quantity,item_1_unit_price,merchant_defined_data1,merchant_defined_data2,merchant_defined_data3,merchant_defined_data4",
-    //                 "transaction_type" => "sale",
-    //                 "reference_number" => "B1611055676089",
-    //                 "auth_trans_ref_no" => "B1611055676089",
-    //                 "amount" => $amount,
-    //                 "currency" => "GTQ",
-    //                 "locale" => "es-us",
-    //                 "merchant_descriptor" => $userData['first_name'],
-    //                 "bill_to_forename" => $userData['first_name'],
-    //                 "bill_to_surname" => $userData['surname'],
-    //                 "bill_to_email" => $userData['email'],
-    //                 "bill_to_phone" => "",
-    //                "bill_to_address_line1" => "Guatemala",
-    //                 "bill_to_address_line2" => "",
-    //                 "bill_to_address_city" => "Guatemala",
-    //                 "bill_to_address_state" => "Guatemala",
-    //                 "bill_to_address_country" => "GT",
-    //                 "bill_to_address_postal_code" => "",
-    //                 "override_custom_cancel_page" => url('/')."/cybersource/payment/response/cancel",
-    //                 "override_custom_receipt_page" => url('/')."/cybersource/payment/response",
-    //                 // "override_custom_receipt_page" => "http://herramientas.localhost/cybersource/payment/response",
-    //                 "customer_ip_address" => $user_ip,
-    //                 "line_item_count" => "2",
-    //                 "item_0_sku" => "sku001",
-    //                 "item_0_code" => "KFLTFDIV",
-    //                 "item_0_name" => "KFLTFDIV",
-    //                 "item_0_quantity" => "1",
-    //                 "item_0_unit_price" => $amount,
-    //                 "item_1_sku" => "sku002",
-    //                 "item_1_code" => "KFLTFD70",
-    //                 "item_1_name" => "KFLTFD70",
-    //                 "item_1_quantity" => "1",
-    //                 "item_1_unit_price" => $amount,
-    //                 "merchant_defined_data1" => "MDD#1",
-    //                 "merchant_defined_data2" => "MDD#2",
-    //                 "merchant_defined_data3" => "MDD#3",
-    //                 "merchant_defined_data4" => "MDD#4",
-    //                 "allow_payment_token_update"=>"false",
-    //                 "auth_type"=>"AUTOCAPTURE",
-    //                 "bill_payment"=>"true",
-    //             ];
-    //         }
-    //         /*
-    //             "recurring_frequency"=>"monthly",
-    //             "recurring_amount"=>$amount,
-    //             "recurring_number_of_installments" => 60,
-    //             "recurring_start_date"=>gmdate("Y-m-d\TH:i:s\Z"),
-    //             "recurring_automatic_renew" => true,
-    //         */
-    //         return view('cybersource.secure.confirm', compact('data'));
-    //     }else{
-    //         $today = date('Y-m-d H:i:s');
-    //         if($price['payment_type'] == "Monthly"){
-    //             $days = 30;
-    //         } else {
-    //             $days = 364;
-    //         }
-
-    //         $expDate = date('Y-m-d', strtotime($today. ' + '.$days.' days'));
-
-    //         $update = [
-    //             'subscription_id'  => $price['subscription_id'],
-    //             'price_matrice_id' => $price['id'],
-    //             'grade_status'       => NULL,
-    //             'is_active'       => 1,
-    //             'grade_date'       => $today,
-    //             'created_at'       => $today,
-    //             'updated_at'       => $today,
-    //             'expire_date'      => $expDate,
-    //         ];
-    //         $updatePurchaseData = $this->priceRepo->updateSubscription($update);
-    //         //Send Mail
-    //         if($price['subscription_id'] == 2 && $price['payment_type'] == "Monthly") {
-    //             $transaction_type = "Suscripción mensual estándar";
-    //         } elseif($price['subscription_id'] == 2 && $price['payment_type'] == "Annual") {
-    //             $transaction_type = "Suscripción anual estándar";
-    //         } elseif($price['subscription_id'] == 3 && $price['payment_type'] == "Monthly") {
-    //             $transaction_type = "Suscripción mensual premium";
-    //         } elseif($price['subscription_id'] == 3 && $price['payment_type'] == "Annual") {
-    //             $transaction_type = "Suscripción anual premium";
-    //         } else {
-    //             $transaction_type = "";
-    //         }
-    //         //  $purchase_subscription = $this->mailRepo->subscriptionPurchaseMail($userData,$transaction_type,$amount);
-    //         //End Mail
-    //         if($updatePurchaseData){
-    //             $data = ["reason_code" => "100","req_transaction_uuid" => "1","transaction_id"=>""];
-    //         } else  {
-    //             $data = ["reason_code" => "150"];
-    //         }
-    //         return view('front.user.payment-response', compact('data'));
-    //     }
-
-    // }
-
-    public function purchase(Request $request)
+    public function purchase($price)
     {
-        // Configura las credenciales de autenticación
-        $config = new \CyberSource\Configuration();
-        // $config->setMerchantId('thecodie_1709761324');
-        $config->setUsername('thealejandro');
-        $config->setPassword('UDZ*myk-zxv6nkf*wry');
-        $config->setApiKey(0,'bcdf24b6-8151-43d3-8289-ebd39c6c31d7');
-        // $config->setSecretKey('FSZse5htzzv4zBABlzdAE02c19A8KNRGzxdr9wrNWLI=');
-        $config->setHost('apitest.cybersource.com');
-        // $config->setHost('https://apitest.cybersource.com/pts/v2/payments');
-
-        $merchantConfig = new \CyberSource\Authentication\Core\MerchantConfiguration();
-        $merchantConfig->setMerchantID('thecodie_1709761324');
-        $merchantConfig->setSecretKey('FSZse5htzzv4zBABlzdAE02c19A8KNRGzxdr9wrNWLI=');
-
-        // Crea una instancia del cliente de API de pagos
-        $api_client = new \CyberSource\ApiClient($config, $merchantConfig);
-        $api_instance = new \CyberSource\Api\PaymentsApi($api_client);
-
-        // Configura los datos de la transacción
-        $payment_request = new \CyberSource\Model\CreatePaymentRequest();
-        $payment_request["clientReferenceInformation"] = new \CyberSource\Model\Ptsv2paymentsClientReferenceInformation();
-        // $payment_request["clientReferenceInformation"]["code"] = "TC50171_3";
-        $payment_request["clientReferenceInformation"]["code"] = uniqid(); // Genera un código único
-
-        $payment_request["orderInformation"] = new \CyberSource\Model\Ptsv2paymentsOrderInformation();
-        $payment_request["orderInformation"]["amountDetails"] = new \CyberSource\Model\Ptsv2paymentsOrderInformationAmountDetails();
-        $payment_request["orderInformation"]["amountDetails"]["totalAmount"] = "0.01";
-        $payment_request["orderInformation"]["amountDetails"]["currency"] = "USD";
-
-        $payment_request["paymentInformation"] = new \CyberSource\Model\Ptsv2paymentsPaymentInformation();
-        $payment_request["paymentInformation"]["card"] = new \CyberSource\Model\Ptsv2paymentsPaymentInformationCard();
-        $payment_request["paymentInformation"]["card"]["expirationMonth"] = "09";
-        $payment_request["paymentInformation"]["card"]["expirationYear"] = "2024";
-        $payment_request["paymentInformation"]["card"]["number"] = "4111111111111111";
-        $payment_request["paymentInformation"]["card"]["securityCode"] = "123";
-
-        $payment_request["processingInformation"] = new \CyberSource\Model\Ptsv2paymentsProcessingInformation();
-        $payment_request["processingInformation"]["capture"] = true;
-
-        try {
-            // Realiza la solicitud de pago
-            $result = $api_instance->createPayment($payment_request);
-            return response()->json($result);
-        } catch (\CyberSource\ApiException $e) {
-            Log::error('Error al procesar el pago: ' . $e->getMessage());
-            return response()->json(['error' => 'Error:'.$e->getMessage()], 500); //getResponseBody()
+        $cybersource_conf = \Config::get('cybersource');
+        $auth_id = Auth::user()->id;
+        $price = $this->priceRepo->getSubscriptionData($price);
+        $userData = $this->priceRepo->getUserData($auth_id);
+        $creditData = $this->priceRepo->getCreditData($auth_id);
+        if($creditData){
+            $amount = $price['price']-$creditData['credit_amount'];
+        } else {
+            $amount = $price['price'];
         }
+      //$amount = 1;
+
+        if($amount>0){
+            $user_ip = $_SERVER['REMOTE_ADDR'];
+            $transaction_uuid = mt_rand(1000000000000,9999999999999);
+            if($price['subscription_id'] == 2 && $price['payment_type'] == "Monthly") {
+                $transaction_type = "Suscripción mensual estándar";
+            } elseif($price['subscription_id'] == 2 && $price['payment_type'] == "Annual") {
+                $transaction_type = "Suscripción anual estándar";
+            } elseif($price['subscription_id'] == 3 && $price['payment_type'] == "Monthly") {
+                $transaction_type = "Suscripción mensual premium";
+            } elseif($price['subscription_id'] == 3 && $price['payment_type'] == "Annual") {
+                $transaction_type = "Suscripción anual premium";
+            } else {
+                $transaction_type = "";
+            }
+
+            // //Send Mail
+            // $purchase_subscription = $this->mailRepo->subscriptionPurchaseMail($userData,$transaction_type,$amount,$transaction_uuid);
+            // //End Mail
+
+            $invoiceData = [
+                'user_id'   =>  $auth_id,
+                'subscription_id'   =>  $price['subscription_id'],
+                'price_id'   =>  $price['id'],
+                'price' =>  $amount,
+                'transaction_uuid' => $transaction_uuid,
+                'transaction_type' => $transaction_type,
+            ];
+            $invoice = $this->priceRepo->createInvoice($invoiceData);
+            $data = [
+                "profile_id" => $cybersource_conf['profile_id'],
+                "access_key" => $cybersource_conf['access_key'],
+                "secret_key" => $cybersource_conf['secret_key'],
+                "transaction_uuid" => $transaction_uuid,
+                "signed_date_time" => gmdate("Y-m-d\TH:i:s\Z"),
+                "signed_field_names" => "profile_id,access_key,transaction_uuid,signed_field_names,unsigned_field_names,signed_date_time,locale,transaction_type,reference_number,auth_trans_ref_no,amount,currency,merchant_descriptor,override_custom_cancel_page,override_custom_receipt_page",
+                "unsigned_field_names" => "device_fingerprint_id,signature,bill_to_forename,bill_to_surname,bill_to_email,bill_to_phone,bill_to_address_line1,bill_to_address_line2,bill_to_address_city,bill_to_address_state,bill_to_address_country,bill_to_address_postal_code,customer_ip_address,line_item_count,item_0_code,item_0_sku,item_0_name,item_0_quantity,item_0_unit_price,item_1_code,item_1_sku,item_1_name,item_1_quantity,item_1_unit_price,merchant_defined_data1,merchant_defined_data2,merchant_defined_data3,merchant_defined_data4",
+                "transaction_type" => "sale",
+                "reference_number" => "B1611055676089",
+                "auth_trans_ref_no" => "B1611055676089",
+                "amount" => $amount,
+                "currency" => "GTQ",
+                "locale" => "es-us",
+                "merchant_descriptor" => $userData['first_name'],
+                "bill_to_forename" => $userData['first_name'],
+                "bill_to_surname" => $userData['surname'],
+                "bill_to_email" => $userData['email'],
+                "bill_to_phone" => "",
+               "bill_to_address_line1" => "Guatemala",
+                "bill_to_address_line2" => "",
+                "bill_to_address_city" => "Guatemala",
+                "bill_to_address_state" => "Guatemala",
+                "bill_to_address_country" => "GT",
+                "bill_to_address_postal_code" => "",
+                "override_custom_cancel_page" => url('/')."/cybersource/payment/response/cancel",
+                "override_custom_receipt_page" => url('/')."/cybersource/payment/response",
+                // "override_custom_receipt_page" => "http://herramientas.localhost/cybersource/payment/response",
+                "customer_ip_address" => $user_ip,
+                "line_item_count" => "2",
+                "item_0_sku" => "sku001",
+                "item_0_code" => "KFLTFDIV",
+                "item_0_name" => "KFLTFDIV",
+                "item_0_quantity" => "1",
+                "item_0_unit_price" => $amount,
+                "item_1_sku" => "sku002",
+                "item_1_code" => "KFLTFD70",
+                "item_1_name" => "KFLTFD70",
+                "item_1_quantity" => "1",
+                "item_1_unit_price" => $amount,
+                "merchant_defined_data1" => "MDD#1",
+                "merchant_defined_data2" => "MDD#2",
+                "merchant_defined_data3" => "MDD#3",
+                "merchant_defined_data4" => "MDD#4",
+                "allow_payment_token_update"=>"false",
+                "auth_type"=>"AUTOCAPTURE",
+                "bill_payment"=>"true",
+
+
+
+            ];
+            if($price['payment_type'] == "Monthly")
+            {
+                $data = [
+                    "profile_id" => $cybersource_conf['profile_id'],
+                    "access_key" => $cybersource_conf['access_key'],
+                    "secret_key" => $cybersource_conf['secret_key'],
+                    "transaction_uuid" => $transaction_uuid,
+                    "signed_date_time" => gmdate("Y-m-d\TH:i:s\Z"),
+                    "signed_field_names" => "profile_id,access_key,transaction_uuid,signed_field_names,unsigned_field_names,signed_date_time,locale,transaction_type,reference_number,auth_trans_ref_no,amount,currency,merchant_descriptor,override_custom_cancel_page,override_custom_receipt_page",
+                    "unsigned_field_names" => "device_fingerprint_id,signature,bill_to_forename,bill_to_surname,bill_to_email,bill_to_phone,bill_to_address_line1,bill_to_address_line2,bill_to_address_city,bill_to_address_state,bill_to_address_country,bill_to_address_postal_code,customer_ip_address,line_item_count,item_0_code,item_0_sku,item_0_name,item_0_quantity,item_0_unit_price,item_1_code,item_1_sku,item_1_name,item_1_quantity,item_1_unit_price,merchant_defined_data1,merchant_defined_data2,merchant_defined_data3,merchant_defined_data4",
+                    "transaction_type" => "sale",
+                    "reference_number" => "B1611055676089",
+                    "auth_trans_ref_no" => "B1611055676089",
+                    "amount" => $amount,
+                    "currency" => "GTQ",
+                    "locale" => "es-us",
+                    "merchant_descriptor" => $userData['first_name'],
+                    "bill_to_forename" => $userData['first_name'],
+                    "bill_to_surname" => $userData['surname'],
+                    "bill_to_email" => $userData['email'],
+                    "bill_to_phone" => "",
+                   "bill_to_address_line1" => "Guatemala",
+                    "bill_to_address_line2" => "",
+                    "bill_to_address_city" => "Guatemala",
+                    "bill_to_address_state" => "Guatemala",
+                    "bill_to_address_country" => "GT",
+                    "bill_to_address_postal_code" => "",
+                    "override_custom_cancel_page" => url('/')."/cybersource/payment/response/cancel",
+                    "override_custom_receipt_page" => url('/')."/cybersource/payment/response",
+                    // "override_custom_receipt_page" => "http://herramientas.localhost/cybersource/payment/response",
+                    "customer_ip_address" => $user_ip,
+                    "line_item_count" => "2",
+                    "item_0_sku" => "sku001",
+                    "item_0_code" => "KFLTFDIV",
+                    "item_0_name" => "KFLTFDIV",
+                    "item_0_quantity" => "1",
+                    "item_0_unit_price" => $amount,
+                    "item_1_sku" => "sku002",
+                    "item_1_code" => "KFLTFD70",
+                    "item_1_name" => "KFLTFD70",
+                    "item_1_quantity" => "1",
+                    "item_1_unit_price" => $amount,
+                    "merchant_defined_data1" => "MDD#1",
+                    "merchant_defined_data2" => "MDD#2",
+                    "merchant_defined_data3" => "MDD#3",
+                    "merchant_defined_data4" => "MDD#4",
+                    "allow_payment_token_update"=>"false",
+                    "auth_type"=>"AUTOCAPTURE",
+                    "bill_payment"=>"true",
+                ];
+            }
+            /*
+                "recurring_frequency"=>"monthly",
+                "recurring_amount"=>$amount,
+                "recurring_number_of_installments" => 60,
+                "recurring_start_date"=>gmdate("Y-m-d\TH:i:s\Z"),
+                "recurring_automatic_renew" => true,
+            */
+            return view('cybersource.secure.confirm', compact('data'));
+        }else{
+            $today = date('Y-m-d H:i:s');
+            if($price['payment_type'] == "Monthly"){
+                $days = 30;
+            } else {
+                $days = 364;
+            }
+
+            $expDate = date('Y-m-d', strtotime($today. ' + '.$days.' days'));
+
+            $update = [
+                'subscription_id'  => $price['subscription_id'],
+                'price_matrice_id' => $price['id'],
+                'grade_status'       => NULL,
+                'is_active'       => 1,
+                'grade_date'       => $today,
+                'created_at'       => $today,
+                'updated_at'       => $today,
+                'expire_date'      => $expDate,
+            ];
+            $updatePurchaseData = $this->priceRepo->updateSubscription($update);
+            //Send Mail
+            if($price['subscription_id'] == 2 && $price['payment_type'] == "Monthly") {
+                $transaction_type = "Suscripción mensual estándar";
+            } elseif($price['subscription_id'] == 2 && $price['payment_type'] == "Annual") {
+                $transaction_type = "Suscripción anual estándar";
+            } elseif($price['subscription_id'] == 3 && $price['payment_type'] == "Monthly") {
+                $transaction_type = "Suscripción mensual premium";
+            } elseif($price['subscription_id'] == 3 && $price['payment_type'] == "Annual") {
+                $transaction_type = "Suscripción anual premium";
+            } else {
+                $transaction_type = "";
+            }
+            //  $purchase_subscription = $this->mailRepo->subscriptionPurchaseMail($userData,$transaction_type,$amount);
+            //End Mail
+            if($updatePurchaseData){
+                $data = ["reason_code" => "100","req_transaction_uuid" => "1","transaction_id"=>""];
+            } else  {
+                $data = ["reason_code" => "150"];
+            }
+            return view('front.user.payment-response', compact('data'));
+        }
+
     }
 }
