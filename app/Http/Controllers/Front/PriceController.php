@@ -12,15 +12,6 @@ use App\Repository\PriceRepository;
 use App\Http\Controllers\Controller;
 use Cybersource\Model\KeyParameters;
 use Illuminate\Support\Facades\Auth;
-use Cybersource\Api\KeyGenerationApi;
-use Cybersource\Model\CreatePaymentRequest;
-use Cybersource\Model\Ptsv2paymentsAmountDetails;
-use Cybersource\Model\Ptsv2paymentsOrderInformation;
-use Cybersource\Model\Ptsv2paymentsPaymentInformation;
-use Cybersource\Model\Ptsv2paymentsProcessingInformation;
-use CyberSource\Authentication\Core\MerchantConfiguration;
-use Cybersource\Model\Ptsv2paymentsPaymentInformationCard;
-use Cybersource\Model\Ptsv2paymentsClientReferenceInformation;
 
 class PriceController extends Controller
 {
@@ -122,10 +113,10 @@ class PriceController extends Controller
                 "bill_to_surname" => $userData['surname'],
                 "bill_to_email" => $userData['email'],
                 "bill_to_phone" => "",
-               "bill_to_address_line1" => "Guatemala",
+                "bill_to_address_line1" => "",
                 "bill_to_address_line2" => "",
-                "bill_to_address_city" => "Guatemala",
-                "bill_to_address_state" => "Guatemala",
+                "bill_to_address_city" => "",
+                "bill_to_address_state" => "",
                 "bill_to_address_country" => "GT",
                 "bill_to_address_postal_code" => "",
                 "override_custom_cancel_page" => url('/')."/cybersource/payment/response/cancel",
@@ -175,10 +166,10 @@ class PriceController extends Controller
                     "bill_to_surname" => $userData['surname'],
                     "bill_to_email" => $userData['email'],
                     "bill_to_phone" => "",
-                   "bill_to_address_line1" => "Guatemala",
+                   "bill_to_address_line1" => "",
                     "bill_to_address_line2" => "",
-                    "bill_to_address_city" => "Guatemala",
-                    "bill_to_address_state" => "Guatemala",
+                    "bill_to_address_city" => "",
+                    "bill_to_address_state" => "",
                     "bill_to_address_country" => "GT",
                     "bill_to_address_postal_code" => "",
                     "override_custom_cancel_page" => url('/')."/cybersource/payment/response/cancel",
